@@ -17,18 +17,13 @@ class CurrencyViewController: UIViewController {
     }
 }
 
-//MARK: - UIPickerViewDataSource
+//MARK: - UIPickerViewDataSource, UIPickerViewDelegate
 
-extension CurrencyViewController: UIPickerViewDataSource {
+extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return coinManager.currencyArray.count
     }
-}
-
-//MARK: - UIPickerViewDelegate
-
-extension CurrencyViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return coinManager.currencyArray[row]
@@ -47,6 +42,7 @@ extension CurrencyViewController: UIPickerViewDelegate {
 //MARK: - CoinManagerDelegate
 
 extension CurrencyViewController: CoinManagerDelegate {
+    
     func didSelectRow(rate: Float, currency: String) {
         DispatchQueue.main.async {
             self.bitcoinLabel.text = String(format: "%.f", rate)

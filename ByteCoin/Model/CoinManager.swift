@@ -7,17 +7,20 @@ protocol CoinManagerDelegate {
 }
 
 class CoinManager {
+    
     var delegate: CoinManagerDelegate?
 
     let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC"
     let currencyArray = ["AUD", "BRL", "CAD", "CNY", "EUR", "GBP", "HKD", "IDR", "ILS", "INR", "JPY", "MXN", "NOK", "NZD", "PLN", "RON", "SEK", "SGD", "USD", "ZAR"]
     
     private var apiKey: String? {
+        
         guard let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
               let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
               let key = dict["API_KEY"] as? String else {
             return nil
         }
+        
         return key
     }
     
@@ -47,6 +50,7 @@ class CoinManager {
     }
 
     func parseJSON(_ data: Data) -> CoinData? {
+        
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(CoinData.self, from: data)

@@ -37,7 +37,7 @@ ByteCoin is a simple and intuitive iOS app that provides real-time Bitcoin price
 
 1. Create a file named `Secrets.plist` in the root of your project.
 2. Add the following structure, replacing `YourActualApiKeyGoesHere` with your API key:
-
+```
    <?xml version="1.0" encoding="UTF-8"?>
    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
    <plist version="1.0">
@@ -46,5 +46,5 @@ ByteCoin is a simple and intuitive iOS app that provides real-time Bitcoin price
        <string>YourActualApiKeyGoesHere</string>
    </dict>
    </plist>
-
+```
 This setup will keep your API key secure while allowing others to run your project locally.
