@@ -44,8 +44,17 @@ extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 extension CurrencyViewController: CoinManagerDelegate {
     
     func didSelectRow(rate: Float, currency: String) {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ","
+        formatter.decimalSeparator = "."
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+
+        let formattedRate = formatter.string(from: NSNumber(value: rate)) ?? ""
+
         DispatchQueue.main.async {
-            self.bitcoinLabel.text = String(format: "%.f", rate)
+            self.bitcoinLabel.text = formattedRate
             self.currencyLabel.text = currency
         }
     }
