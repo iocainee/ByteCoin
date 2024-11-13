@@ -4,8 +4,7 @@
 
 ByteCoin is a simple and intuitive iOS app that provides real-time Bitcoin price information. Users can view the current price of Bitcoin in a variety of popular global currencies.
 
-![Starting view](images/screenshot1.png)
-![Rate view](images/screenshot2.png)
+<img src="images/screenshot1.png" alt="Starting view" height="650" width="300"/> <img src="images/screenshot2.png" alt="Rate view" height="650" width="300"/>
 
 ## Features
 
